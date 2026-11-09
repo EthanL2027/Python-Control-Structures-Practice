@@ -24,13 +24,23 @@ How to use this file:
 #   60 to 69    -> "D"
 #   below 60    -> "F"
 def grade_letter(score):
-    pass
+    if score >= 90:
+        return "A"
+    elif score >= 80:
+        return "B"
+    elif score >= 70:
+        return "C"
+    elif score >= 60:
+        return "D"
+    else:
+        return "F"
 
 
 # Exercise 1.2
 # Conceptual question: In grade_letter, what would go wrong if you checked
 # "score >= 60" first instead of "score >= 90"? Write your answer below.
-# Your answer:
+# Your answer: It will include grade ranges that are not accurate to the letter it's printing.
+# We need the order to reduce the amount of possibilities with each statement.
 
 
 # Exercise 1.3
@@ -60,7 +70,12 @@ def describe_number(n):
 # the numbers from n down to 1, one per line, then prints "Liftoff!".
 # Use a while loop and make sure you update your counter so the loop ends.
 def countdown(n):
-    pass
+    # while loop that prints our number out
+    while n > 0:
+        print(n)
+        n = n-1
+    print("Liftoff!")
+
 
 
 # Exercise 2.2
@@ -224,4 +239,4 @@ if __name__ == "__main__":
     # bugged_countdown()
     # bugged_prices()
     # fizzbuzz(15)
-    pass
+   
