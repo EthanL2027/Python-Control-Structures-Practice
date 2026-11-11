@@ -43,12 +43,13 @@ def grade_letter(score):
 # We need the order to reduce the amount of possibilities with each statement.
 
 
+
 # Exercise 1.3
 # Write a function called is_empty that takes a list and returns True if the
 # list has no items and False otherwise.
 # Rule: do NOT use == with an empty list. Use truthiness with "not".
 def is_empty(items):
-    pass
+      return not items
 
 
 # Exercise 1.4
@@ -58,7 +59,12 @@ def is_empty(items):
 #   "negative"  otherwise
 # Use if, elif, and else.
 def describe_number(n):
-    pass
+     if n == 0:
+        return "zero"
+     elif n > 0:
+        return "positive"
+     else:
+        return "negative"
 
 
 # =====================================================================
@@ -78,20 +84,25 @@ def countdown(n):
 
 
 
-# Exercise 2.2
+# *Exercise 2.2
 # Write a function called total_until_negative that takes a list of numbers and
 # adds them up with a while loop, stopping when it reaches a negative number.
 # Return the total. Do not include the negative number.
 # Example: [4, 5, -1, 10] should return 9.
 def total_until_negative(nums):
-    pass
+    total = 0
+    n = 0
+    while n < len(nums) and nums[n] >= 0:
+        total = total + nums[n]
+        n = n + 1
+    return total
 
 
 # Exercise 2.3
 # Conceptual question: The loop in countdown would run forever if you forgot
 # to update the counter. What is the name for the variable that controls
 # when a while loop stops? Write your answer below.
-# Your answer:
+# Your answer: The loop control variable.
 
 
 # =====================================================================
@@ -103,14 +114,15 @@ def total_until_negative(nums):
 # list of the even numbers from 0 up to n (inclusive if n is even).
 # Use range() with a step. Example: even_numbers(6) returns [0, 2, 4, 6].
 def even_numbers(n):
-    pass
+    return list(range(0, n + 1, 2))
 
 
 # Exercise 3.2
 # Write a function called print_multiples_of_three that prints every multiple
 # of 3 from 3 through 30, one per line. Use range(start, stop, step).
 def print_multiples_of_three():
-    pass
+    for n in range(3, 31, 3):
+        print(n)
 
 
 # Exercise 3.3
@@ -122,7 +134,8 @@ def print_multiples_of_three():
 # Use enumerate(). Remember that enumerate() starts counting at 0,
 # so you will need to add 1 to the index.
 def print_numbered_list(items):
-    pass
+    for n, item in enumerate(items):
+        print(n + 1, ".", item)
 
 
 # Exercise 3.4
@@ -132,7 +145,17 @@ def print_numbered_list(items):
 # Example: {"Ana": 95, "Ben": 82} prints both lines and returns "Ana".
 # Use .items() to get both the key and the value.
 def highest_scorer(scores):
-    pass
+    highest = ""
+    highest_score = -1
+
+    for name, score in scores.items():
+        print(name, score)
+
+        if score > highest_score:
+            highest_score = score
+            highest = name
+
+    return highest
 
 
 # Exercise 3.5
@@ -140,7 +163,8 @@ def highest_scorer(scores):
 #     d = {"red": 1, "blue": 2}
 #     for k in d:
 #         print(k)
-# Your answer:
+# Your answer: It prints "red" and "blue" because looping through a dictionary
+# Prints its keys by default.
 
 
 # =====================================================================
@@ -152,7 +176,10 @@ def highest_scorer(scores):
 # and returns the index of the first negative number. If there is no negative
 # number, return -1. Use return inside the loop.
 def index_of_first_negative(nums):
-    pass
+    for n in range(len(nums)):
+        if nums[n] < 0:
+            return n
+    return -1
 
 
 # Exercise 4.2
@@ -160,7 +187,10 @@ def index_of_first_negative(nums):
 # each character that is NOT a vowel (a, e, i, o, u), one per line.
 # Use continue to skip the vowels.
 def print_without_vowels(word):
-    pass
+    for letter in word:
+        if letter in "aeiou":
+            continue
+        print(letter)
 
 
 # Exercise 4.3
@@ -170,14 +200,19 @@ def print_without_vowels(word):
 # Hint: this needs a nested for loop. Use return as soon as you find a pair.
 # Example: has_pair_with_sum([2, 7, 11], 9) returns True (2 + 7 = 9).
 def has_pair_with_sum(nums, target):
-    pass
+    for n in nums:
+        for x in nums:
+            if n != x and n + x == target:
+                return True
+    return False
 
 
 # Exercise 4.4
 # Conceptual question: In the nested loop from Exercise 4.3, if you used break
 # instead of return when you found a pair, what would happen? Would the
 # function still return the right answer? Write your answer below.
-# Your answer:
+# Your answer: Break would only stop the loop, not the whole function.
+# The function would not automatically return True, so return is needed.
 
 
 # =====================================================================
@@ -191,6 +226,7 @@ def bugged_countdown():
     n = 5
     while n > 0:
         print(n)
+        n = n - 1
 
 
 # Exercise 5.2
@@ -198,7 +234,7 @@ def bugged_countdown():
 # Fix it so it works.
 def bugged_prices():
     prices = {"apple": 1.20, "pear": 0.80}
-    for fruit, price in prices:
+    for fruit, price in prices.items():
         print(fruit, price)
 
 
@@ -215,7 +251,15 @@ def bugged_prices():
 #   - otherwise prints the number itself
 # Hint: check the FizzBuzz case first. Think about why the order matters.
 def fizzbuzz(n):
-    pass
+    for num in range(1, n + 1):
+        if num % 3 == 0 and num % 5 == 0:
+            print("FizzBuzz")
+        elif num % 3 == 0:
+            print("Fizz")
+        elif num % 5 == 0:
+            print("Buzz")
+        else:
+            print(num)
 
 
 # =====================================================================
