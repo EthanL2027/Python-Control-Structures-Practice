@@ -34,6 +34,7 @@ def grade_letter(score):
         return "D"
     else:
         return "F"
+print (grade_letter)
 
 
 # Exercise 1.2
@@ -50,6 +51,7 @@ def grade_letter(score):
 # Rule: do NOT use == with an empty list. Use truthiness with "not".
 def is_empty(items):
       return not items
+print(is_empty)
 
 
 # Exercise 1.4
@@ -65,6 +67,7 @@ def describe_number(n):
         return "positive"
      else:
         return "negative"
+print(describe_number)
 
 
 # =====================================================================
@@ -76,15 +79,15 @@ def describe_number(n):
 # the numbers from n down to 1, one per line, then prints "Liftoff!".
 # Use a while loop and make sure you update your counter so the loop ends.
 def countdown(n):
-    # while loop that prints our number out
     while n > 0:
         print(n)
         n = n-1
     print("Liftoff!")
+print(countdown)
 
 
 
-# *Exercise 2.2
+# Exercise 2.2
 # Write a function called total_until_negative that takes a list of numbers and
 # adds them up with a while loop, stopping when it reaches a negative number.
 # Return the total. Do not include the negative number.
@@ -96,6 +99,7 @@ def total_until_negative(nums):
         total = total + nums[n]
         n = n + 1
     return total
+print(total_until_negative)
 
 
 # Exercise 2.3
@@ -115,6 +119,7 @@ def total_until_negative(nums):
 # Use range() with a step. Example: even_numbers(6) returns [0, 2, 4, 6].
 def even_numbers(n):
     return list(range(0, n + 1, 2))
+print(even_numbers(6))
 
 
 # Exercise 3.2
@@ -123,6 +128,7 @@ def even_numbers(n):
 def print_multiples_of_three():
     for n in range(3, 31, 3):
         print(n)
+print(print_multiples_of_three())
 
 
 # Exercise 3.3
@@ -136,6 +142,7 @@ def print_multiples_of_three():
 def print_numbered_list(items):
     for n, item in enumerate(items):
         print(n + 1, ".", item)
+print(print_multiples_of_three)
 
 
 # Exercise 3.4
@@ -156,6 +163,7 @@ def highest_scorer(scores):
             highest = name
 
     return highest
+print(highest_scorer)
 
 
 # Exercise 3.5
@@ -180,6 +188,7 @@ def index_of_first_negative(nums):
         if nums[n] < 0:
             return n
     return -1
+print(index_of_first_negative)
 
 
 # Exercise 4.2
@@ -191,6 +200,7 @@ def print_without_vowels(word):
         if letter in "aeiou":
             continue
         print(letter)
+print(print_multiples_of_three)
 
 
 # Exercise 4.3
@@ -205,6 +215,7 @@ def has_pair_with_sum(nums, target):
             if n != x and n + x == target:
                 return True
     return False
+print(has_pair_with_sum)
 
 
 # Exercise 4.4
@@ -227,6 +238,7 @@ def bugged_countdown():
     while n > 0:
         print(n)
         n = n - 1
+print(bugged_countdown)
 
 
 # Exercise 5.2
@@ -236,6 +248,7 @@ def bugged_prices():
     prices = {"apple": 1.20, "pear": 0.80}
     for fruit, price in prices.items():
         print(fruit, price)
+print(bugged_countdown)
 
 
 # =====================================================================
@@ -260,6 +273,7 @@ def fizzbuzz(n):
             print("Buzz")
         else:
             print(num)
+    print(fizzbuzz)
 
 
 # =====================================================================
